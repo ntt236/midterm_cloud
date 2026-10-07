@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Environment Variables (Bảo mật: Tuyệt đối không đẩy lên GitHub)
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
