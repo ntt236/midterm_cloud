@@ -26,6 +26,9 @@ app.engine('handlebars', engine({
     formatCurrency: function (value) {
       if (!value && value !== 0) return '0 VNĐ';
       return Number(value).toLocaleString('vi-VN') + ' VNĐ';
+    },
+    eq: function (a, b) {
+      return a === b;
     }
   }
 }));

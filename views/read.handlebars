@@ -1,0 +1,78 @@
+<div class="page-container">
+
+  <!-- Thông báo từ Session (nếu có) -->
+  {{#if successMessage}}
+  <div class="alert alert-success">
+    {{successMessage}}
+  </div>
+  {{/if}}
+
+  {{#if errorMessage}}
+  <div class="alert alert-danger">
+    {{errorMessage}}
+  </div>
+  {{/if}}
+
+  <!-- Card Thông tin Luồng Đọc -->
+  <div class="info-card">
+    <div class="info-title">📖 Luồng Đọc Dữ Liệu (Read Flow)</div>
+    <div class="info-grid">
+      <div class="info-item">
+        Tài khoản sử dụng: <code>{{studentId}}_read</code> (Quyền: <strong>Chỉ Đọc / Read-only</strong>)
+      </div>
+      <div class="info-item">
+        Database Cloud: <code>DB_{{studentId}}</code> (MongoDB Atlas)
+      </div>
+      <div class="info-item">
+        Stateless Session: Lưu tập trung trên Cloud Atlas (Lượt xem: <strong>{{sessionViews}}</strong>)
+      </div>
+    </div>
+  </div>
+
+  <!-- Danh Sách Sách (Read Only) -->
+  <section class="card">
+    <div class="card-header-flex">
+      <div>
+        <h2>Danh Sách Sách Trên Cloud Database</h2>
+        <span class="card-subtitle">Tổng số: <strong>{{books.length}}</strong> cuốn sách</span>
+      </div>
+      {{!-- <a href="/write" class="btn btn-outline">+ Thêm Sách Mới</a> --}}
+    </div>
+
+    <div class="table-responsive">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Mã Sách</th>
+            <th>Tên Sách</th>
+            <th>Tác Giả</th>
+            <th>Giá Gốc</th>
+            <th>VAT</th>
+            <th>Giá Sau Thuế</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#if books.length}}
+          {{#each books}}
+          <tr>
+            <td><code>{{this.code}}</code></td>
+            <td><strong>{{this.title}}</strong></td>
+            <td>{{this.author}}</td>
+            <td>{{this.price}} VNĐ</td>
+            <td><span class="badge">{{this.vatRate}}%</span></td>
+            <td><strong>{{this.priceWithVAT}} VNĐ</strong></td>
+          </tr>
+          {{/each}}
+          {{else}}
+          <tr>
+            <td colspan="6" class="empty-cell">
+              Chưa có dữ liệu sách nào trong database. Hãy bấm <strong>"+ Thêm Sách Mới"</strong> để tạo mới!
+            </td>
+          </tr>
+          {{/if}}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</div>
