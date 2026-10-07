@@ -8,9 +8,9 @@ const STUDENT_ID = process.env.STUDENT_ID || '23IT285';
 // 3 số cuối MSSV dùng làm tiền tố bắt buộc cho mã sách
 const REQUIRED_PREFIX = STUDENT_ID.slice(-3); // "285"
 
-// Chữ số cuối MSSV dùng để tính VAT: VAT = (Chữ số cuối + 5)%
+// Chữ số cuối MSSV dùng để tính VAT: VAT = (Chữ số cuối + 6)%
 const LAST_DIGIT = parseInt(STUDENT_ID.slice(-1), 10); // 5
-const VAT_RATE = LAST_DIGIT + 5; // 10%
+const VAT_RATE = LAST_DIGIT + 6; // 11%
 
 // ==========================================
 // 1. LUỒNG ĐỌC (READ FLOW) - DÙNG TÀI KHOẢN ĐỌC (23IT285_read)
@@ -75,7 +75,7 @@ router.post('/books', async (req, res) => {
       return res.redirect('/');
     }
 
-    // THUẬT TOÁN CÁ NHÂN HÓA 2: Tính thuế suất động VAT = (Chữ số cuối MSSV + 5)%
+    // THUẬT TOÁN CÁ NHÂN HÓA 2: Tính thuế suất động VAT = (Chữ số cuối MSSV + 6)%
     // Tự động tính giá sau thuế trước khi lưu xuống đám mây
     const priceWithVAT = Math.round(numPrice * (1 + VAT_RATE / 100));
 

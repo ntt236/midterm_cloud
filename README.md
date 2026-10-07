@@ -27,9 +27,9 @@
   - Đảm bảo hệ thống có thể Auto-scaling (thêm/bớt máy chủ) trên Cloud mà người dùng không bị mất phiên làm việc.
 - **Thuật toán cá nhân hóa:**
   - **Bộ lọc tiền tố mã sách:** Mã sách bắt buộc phải có tiền tố là 3 số cuối MSSV (**`285`**). Ví dụ: `285-JS01`, `285-CLOUD`. Nếu không có tiền tố này, hệ thống lập tức từ chối xử lý và phát cảnh báo lỗi.
-  - **Thuế suất VAT động:** Tính theo công thức `VAT = (Chữ số cuối MSSV + 5)% = (5 + 5)% = 10%`.
-  - **Giá sau thuế:** Tính toán tự động `Giá sau thuế = Giá gốc * (1 + 10%)` trước khi lưu xuống database và render ra giao diện Handlebars.
-  - **Footer giao diện:** Hiển thị bắt buộc Họ tên (Nguyễn Thanh Triều), MSSV (23IT285) và Mức VAT áp dụng (10%).
+  - **Thuế suất VAT động:** Tính theo công thức `VAT = (Chữ số cuối MSSV + 6)% = (5 + 6)% = 11%`.
+  - **Giá sau thuế:** Tính toán tự động `Giá sau thuế = Giá gốc * (1 + 11%)` trước khi lưu xuống database và render ra giao diện Handlebars.
+  - **Footer giao diện:** Hiển thị bắt buộc Họ tên (Nguyễn Thanh Triều), MSSV (23IT285) và Mức VAT áp dụng (11%).
 
 ---
 
