@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hệ Thống Quản Lý Sách Cloud - {{studentId}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">Cloud Book Manager</h1>
+          <span class="brand-subtitle">Điện Toán Đám Mây &bull; Phân quyền Least Privilege &bull; Stateless Architecture</span>
+        </div>
+      </div>
+      <div class="header-badges">
+        <span class="badge badge-primary">Database: DB_{{studentId}}</span>
+        <span class="badge badge-success">VAT: {{vatRate}}%</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-content">
+    {{{body}}}
+  </main>
+
+  <!-- Mandatory Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-info-grid">
+        <div class="footer-item">
+          <span class="footer-label">Họ và Tên Sinh Viên:</span>
+          <strong class="footer-value highlight">{{studentName}}</strong>
+        </div>
+        <div class="footer-item">
+          <span class="footer-label">Mã Số Sinh Viên (MSSV):</span>
+          <strong class="footer-value highlight">{{studentId}}</strong>
+        </div>
+        <div class="footer-item">
+          <span class="footer-label">Mức VAT Áp Dụng:</span>
+          <strong class="footer-value badge-vat">{{vatRate}}% (Công thức: Chữ số cuối {{studentId}} + 5)</strong>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 - Kiểm Tra Giữa Kì Môn Điện Toán Đám Mây &bull; Kiến trúc Stateless &bull; MongoDB Atlas Cloud</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
