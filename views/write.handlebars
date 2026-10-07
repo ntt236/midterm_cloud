@@ -2,19 +2,19 @@
 
   <!-- Thông báo từ Session (nếu có) -->
   {{#if errorMessage}}
-    <div class="alert alert-danger">
-      {{errorMessage}}
-    </div>
+  <div class="alert alert-danger">
+    {{errorMessage}}
+  </div>
   {{/if}}
 
   {{#if successMessage}}
-    <div class="alert alert-success">
-      {{successMessage}}
-    </div>
+  <div class="alert alert-success">
+    {{successMessage}}
+  </div>
   {{/if}}
 
   <!-- Card Thông tin Luồng Ghi -->
-  <div class="info-card">
+  {{!-- <div class="info-card">
     <div class="info-title">✍️ Luồng Ghi Dữ Liệu (Write Flow)</div>
     <div class="info-grid">
       <div class="info-item">
@@ -27,7 +27,7 @@
         Thuế suất VAT động: <strong>{{vatRate}}%</strong> (Công thức: Chữ số cuối + 6)%
       </div>
     </div>
-  </div>
+  </div> --}}
 
   <!-- Form Thêm Sách Mới -->
   <section class="card form-container-simple">
@@ -39,13 +39,8 @@
     <form action="/write" method="POST" class="book-form">
       <div class="form-group">
         <label for="code">Mã Sách *</label>
-        <input 
-          type="text" 
-          id="code" 
-          name="code" 
-          placeholder="Ví dụ: {{requiredPrefix}}-01, {{requiredPrefix}}-NODEJS" 
-          required
-        >
+        <input type="text" id="code" name="code" placeholder="Ví dụ: {{requiredPrefix}}-01, {{requiredPrefix}}-NODEJS"
+          required>
         <small class="hint-text">
           Bắt buộc bắt đầu bằng <strong>{{requiredPrefix}}</strong>. Nếu sai hệ thống sẽ từ chối xử lý!
         </small>
@@ -53,37 +48,17 @@
 
       <div class="form-group">
         <label for="title">Tên Sách *</label>
-        <input 
-          type="text" 
-          id="title" 
-          name="title" 
-          placeholder="Ví dụ: Lập trình Cloud Computing" 
-          required
-        >
+        <input type="text" id="title" name="title" placeholder="Ví dụ: Lập trình Cloud Computing" required>
       </div>
 
       <div class="form-group">
         <label for="author">Tác Giả *</label>
-        <input 
-          type="text" 
-          id="author" 
-          name="author" 
-          placeholder="Ví dụ: {{studentName}}" 
-          required
-        >
+        <input type="text" id="author" name="author" placeholder="Ví dụ: {{studentName}}" required>
       </div>
 
       <div class="form-group">
         <label for="price">Giá Gốc Chưa Thuế (VNĐ) *</label>
-        <input 
-          type="number" 
-          id="price" 
-          name="price" 
-          min="0" 
-          step="1000" 
-          placeholder="Ví dụ: 100000" 
-          required
-        >
+        <input type="number" id="price" name="price" min="0" step="1000" placeholder="Ví dụ: 100000" required>
       </div>
 
       <!-- Khung Tính Thuế Tự Động -->
@@ -116,7 +91,7 @@
   const priceInput = document.getElementById('price');
   const previewVatAmount = document.getElementById('previewVatAmount');
   const previewTotal = document.getElementById('previewTotal');
-  const vatRate = {{vatRate}};
+  const vatRate = {{ vatRate }};
 
   function updateTax() {
     const val = parseFloat(priceInput.value) || 0;

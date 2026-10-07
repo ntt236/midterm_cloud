@@ -1,7 +1,7 @@
 <div class="page-container">
 
   <!-- System Architecture & Stateless Session Status Card -->
-  <section class="card status-card">
+  {{!-- <section class="card status-card">
     <div class="card-header">
       <div class="card-title-group">
         <span class="status-indicator live"></span>
@@ -31,33 +31,34 @@
       <div class="status-box">
         <span class="status-title">⚙️ Thuật Toán Cá Nhân Hóa</span>
         <div class="status-details">
-          <p><strong>Tiền tố mã sách:</strong> Bắt buộc là <strong class="text-accent">{{requiredPrefix}}</strong> (3 số cuối MSSV)</p>
+          <p><strong>Tiền tố mã sách:</strong> Bắt buộc là <strong class="text-accent">{{requiredPrefix}}</strong> (3 số
+            cuối MSSV)</p>
           <p><strong>Công thức VAT:</strong> (5 + 6)% = <strong class="text-accent">{{vatRate}}%</strong></p>
           <p><strong>Cơ chế tính giá:</strong> Giá sau thuế = Giá gốc &times; (1 + {{vatRate}}%)</p>
         </div>
       </div>
     </div>
-  </section>
+  </section> --}}
 
   <!-- Notification Alerts -->
   {{#if successMessage}}
-    <div class="alert alert-success">
-      <div class="alert-icon">✓</div>
-      <div class="alert-content">
-        <strong>Thành công!</strong>
-        <p>{{successMessage}}</p>
-      </div>
+  <div class="alert alert-success">
+    <div class="alert-icon">✓</div>
+    <div class="alert-content">
+      <strong>Thành công!</strong>
+      <p>{{successMessage}}</p>
     </div>
+  </div>
   {{/if}}
 
   {{#if errorMessage}}
-    <div class="alert alert-danger">
-      <div class="alert-icon">⚠️</div>
-      <div class="alert-content">
-        <strong>Cảnh báo từ chối / Lỗi!</strong>
-        <p>{{errorMessage}}</p>
-      </div>
+  <div class="alert alert-danger">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-content">
+      <strong>Cảnh báo từ chối / Lỗi!</strong>
+      <p>{{errorMessage}}</p>
     </div>
+  </div>
   {{/if}}
 
   <div class="content-grid">
@@ -71,52 +72,28 @@
         <div class="form-group">
           <label for="code">Mã Sách <span class="required">*</span></label>
           <div class="input-with-hint">
-            <input 
-              type="text" 
-              id="code" 
-              name="code" 
-              placeholder="VD: {{requiredPrefix}}-JS01, {{requiredPrefix}}-CLOUD" 
-              required
-            >
+            <input type="text" id="code" name="code" placeholder="VD: {{requiredPrefix}}-JS01, {{requiredPrefix}}-CLOUD"
+              required>
           </div>
           <small class="hint-text">
-            Yêu cầu: Bắt buộc phải có tiền tố là 3 số cuối MSSV (<strong class="text-accent">{{requiredPrefix}}</strong>). Nếu sai hệ thống sẽ từ chối!
+            Yêu cầu: Bắt buộc phải có tiền tố là 3 số cuối MSSV (<strong
+              class="text-accent">{{requiredPrefix}}</strong>). Nếu sai hệ thống sẽ từ chối!
           </small>
         </div>
 
         <div class="form-group">
           <label for="title">Tên Sách <span class="required">*</span></label>
-          <input 
-            type="text" 
-            id="title" 
-            name="title" 
-            placeholder="VD: Giáo trình Điện Toán Đám Mây" 
-            required
-          >
+          <input type="text" id="title" name="title" placeholder="VD: Giáo trình Điện Toán Đám Mây" required>
         </div>
 
         <div class="form-group">
           <label for="author">Tác Giả <span class="required">*</span></label>
-          <input 
-            type="text" 
-            id="author" 
-            name="author" 
-            placeholder="VD: Nguyễn Văn A" 
-            required
-          >
+          <input type="text" id="author" name="author" placeholder="VD: Nguyễn Văn A" required>
         </div>
 
         <div class="form-group">
           <label for="price">Giá Gốc Chưa Thuế (VNĐ) <span class="required">*</span></label>
-          <input 
-            type="number" 
-            id="price" 
-            name="price" 
-            min="0" 
-            step="1000" 
-            placeholder="VD: 150000" 
-            required
-          >
+          <input type="number" id="price" name="price" min="0" step="1000" placeholder="VD: 150000" required>
         </div>
 
         <!-- Realtime Tax Preview Box -->
@@ -169,25 +146,25 @@
           </thead>
           <tbody>
             {{#if books.length}}
-              {{#each books}}
-                <tr>
-                  <td><span class="code-pill">{{this.code}}</span></td>
-                  <td><strong>{{this.title}}</strong></td>
-                  <td class="text-muted">{{this.author}}</td>
-                  <td>{{this.price}} VNĐ</td>
-                  <td><span class="badge badge-success">{{this.vatRate}}%</span></td>
-                  <td><strong class="price-highlight">{{this.priceWithVAT}} VNĐ</strong></td>
-                </tr>
-              {{/each}}
+            {{#each books}}
+            <tr>
+              <td><span class="code-pill">{{this.code}}</span></td>
+              <td><strong>{{this.title}}</strong></td>
+              <td class="text-muted">{{this.author}}</td>
+              <td>{{this.price}} VNĐ</td>
+              <td><span class="badge badge-success">{{this.vatRate}}%</span></td>
+              <td><strong class="price-highlight">{{this.priceWithVAT}} VNĐ</strong></td>
+            </tr>
+            {{/each}}
             {{else}}
-              <tr>
-                <td colspan="6" class="empty-state">
-                  <div class="empty-box">
-                    <p>Chưa có dữ liệu sách nào trên Cloud Database <code>DB_{{studentId}}</code>.</p>
-                    <small>Hãy thêm cuốn sách đầu tiên ở biểu mẫu bên cạnh!</small>
-                  </div>
-                </td>
-              </tr>
+            <tr>
+              <td colspan="6" class="empty-state">
+                <div class="empty-box">
+                  <p>Chưa có dữ liệu sách nào trên Cloud Database <code>DB_{{studentId}}</code>.</p>
+                  <small>Hãy thêm cuốn sách đầu tiên ở biểu mẫu bên cạnh!</small>
+                </div>
+              </td>
+            </tr>
             {{/if}}
           </tbody>
         </table>
@@ -201,7 +178,7 @@
   const priceInput = document.getElementById('price');
   const previewVatAmount = document.getElementById('previewVatAmount');
   const previewTotal = document.getElementById('previewTotal');
-  const vatRate = {{vatRate}};
+  const vatRate = {{ vatRate }};
 
   function updateTaxPreview() {
     const val = parseFloat(priceInput.value) || 0;
