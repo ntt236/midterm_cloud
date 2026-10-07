@@ -6,7 +6,7 @@
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
-  "author": "Nguyễn Thanh Triệu - 23IT285",
+  "author": "Nguyễn Thanh Triều - 23IT285",
   "license": "ISC",
   "description": "Midterm Cloud Computing - Book Management System with Multi-Connection and Stateless Session",
   "dependencies": {

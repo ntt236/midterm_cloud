@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { BookRead, BookWrite } = require('../models/Book');
 
-const STUDENT_NAME = process.env.STUDENT_NAME || 'Nguyễn Thanh Triệu';
+const STUDENT_NAME = process.env.STUDENT_NAME || 'Nguyễn Thanh Triều';
 const STUDENT_ID = process.env.STUDENT_ID || '23IT285';
 
 // 3 số cuối MSSV dùng làm tiền tố bắt buộc cho mã sách

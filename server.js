@@ -87,7 +87,7 @@ app.listen(PORT, () => {
   console.log(`====================================================`);
   console.log(`🚀 Hệ thống Quản Lý Sách Cloud đã khởi động!`);
   console.log(`📍 Địa chỉ: http://localhost:${PORT}`);
-  console.log(`👤 Sinh viên: ${process.env.STUDENT_NAME || 'Nguyễn Thanh Triệu'} - MSSV: ${process.env.STUDENT_ID || '23IT285'}`);
+  console.log(`👤 Sinh viên: ${process.env.STUDENT_NAME || 'Nguyễn Thanh Triều'} - MSSV: ${process.env.STUDENT_ID || '23IT285'}`);
   console.log(`⚙️  Kiến trúc: Multi-connection Least Privilege & Stateless Session`);
   console.log(`====================================================`);
 });

@@ -1,6 +1,6 @@
 # Hệ Thống Quản Lý Sách Cloud (Cloud Book Management)
 **Môn học:** Điện toán đám mây - Kiểm tra Giữa kì  
-**Sinh viên thực hiện:** Nguyễn Thanh Triệu  
+**Sinh viên thực hiện:** Nguyễn Thanh Triều  
 **Mã số sinh viên (MSSV):** 23IT285  
 
 ---
@@ -29,7 +29,7 @@
   - **Bộ lọc tiền tố mã sách:** Mã sách bắt buộc phải có tiền tố là 3 số cuối MSSV (**`285`**). Ví dụ: `285-JS01`, `285-CLOUD`. Nếu không có tiền tố này, hệ thống lập tức từ chối xử lý và phát cảnh báo lỗi.
   - **Thuế suất VAT động:** Tính theo công thức `VAT = (Chữ số cuối MSSV + 5)% = (5 + 5)% = 10%`.
   - **Giá sau thuế:** Tính toán tự động `Giá sau thuế = Giá gốc * (1 + 10%)` trước khi lưu xuống database và render ra giao diện Handlebars.
-  - **Footer giao diện:** Hiển thị bắt buộc Họ tên (Nguyễn Thanh Triệu), MSSV (23IT285) và Mức VAT áp dụng (10%).
+  - **Footer giao diện:** Hiển thị bắt buộc Họ tên (Nguyễn Thanh Triều), MSSV (23IT285) và Mức VAT áp dụng (10%).
 
 ---
 
@@ -37,7 +37,7 @@
 File `.env` được bảo mật bằng `.gitignore` và không bao giờ được commit lên GitHub:
 ```env
 PORT=3000
-STUDENT_NAME=Nguyễn Thanh Triệu
+STUDENT_NAME=Nguyễn Thanh Triều
 STUDENT_ID=23IT285
 
 MONGO_URI_READ=mongodb+srv://23IT285_read:ntt236@cluster0.meu96pm.mongodb.net/DB_23IT285?retryWrites=true&w=majority&appName=Cluster0
@@ -71,7 +71,7 @@ Mã nguồn được phát triển tuân thủ quy trình Git Flow với 2 nhán
    - **Build Command:** `npm install`
    - **Start Command:** `npm start`
 5. Cấu hình toàn bộ các biến môi trường trong mục **Environment Variables** trên Render:
-   - `STUDENT_NAME`: `Nguyễn Thanh Triệu`
+   - `STUDENT_NAME`: `Nguyễn Thanh Triều`
    - `STUDENT_ID`: `23IT285`
    - `MONGO_URI_READ`: `<Chuỗi kết nối đọc>`
    - `MONGO_URI_WRITE`: `<Chuỗi kết nối ghi>`
